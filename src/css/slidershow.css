@@ -99,3 +99,12 @@
     background-color: #cecece81;
     transition: 0.3s;
 }
+
+.slider-dots-nave {
+	width: 0 auto;
+	padding: 8px;
+	display: inline-block;
+	border-radius: 50%;
+	border-color: #ffffff;
+	background-color: #000000;
+}
