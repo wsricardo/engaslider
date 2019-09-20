@@ -14,6 +14,7 @@
 
 .slider-mold {
 	display: block;
+	padding-bottom: 0;
     border: 6px solid #adababab;
     border-radius: 5px;
 	box-sizing: border-box;
@@ -21,7 +22,7 @@
 }
 
 .slider-text-caption {
-    padding: 10px;
+    padding: 12px;
     text-align: center;
     font-size: 11px;
     color: black;
@@ -103,9 +104,12 @@
 
 .slider-dots-nav {
 	width: 0 auto;
-	padding: 8px;
+	padding: 6px;
+	margin-left: 4px;
 	display: inline-block;
 	border-radius: 50%;
-	border-color: #ffffff;
-	background-color: #000000;
+	/*border-color: #ffffff;*/
+	background-color: #adababab;
+	box-sizing: border-box;
+	box-shadow: 1px 0 0 2px #0707077c; 
 }
