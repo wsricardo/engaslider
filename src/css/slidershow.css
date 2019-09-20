@@ -9,6 +9,7 @@
 .slider-image {
     display: none;
     margin: 0;
+	vertical-align: center;
 }
 
 .slider-mold {
@@ -29,7 +30,6 @@
 }
 
 .slider-image img {
-    vertical-align: middle;
     text-align: center;
     animation-name: fade;
     animation-duration: 1s;
@@ -58,13 +58,11 @@
     cursor: pointer;
     position: absolute;
     padding: 16px;
-    top: 10%;
+    top: 0;
 	left: 0;
-    margin-top: 20%;
+    margin-top: 30%;
     float: left;
-    width: auto;
-    height: auto;
-	vertical-align: center;
+    width: 0 auto;
     text-align: center;
     font-weight: bold;
     font-size: 1em;
@@ -82,13 +80,11 @@
     cursor: pointer;
     position: absolute;
     right: 0;
-    top: 10%;
+    top: 0;
     padding: 16px;
-    margin-top: 20%;
+    margin-top: 30%;
     float: right;
-    width: auto;
-    height: auto;
-	vertical-align: center;
+    width: 0 auto;
     text-align: center;
     font-weight: bold;
     font-size: 1em;
