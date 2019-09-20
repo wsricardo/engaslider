@@ -22,6 +22,7 @@ SOFTWARE.*/
 
 var slideIndex, autoplay, slides, numberSlides;
 var slNextBtn, slPreviousBtn;
+var timespeed = 2000; //Slide speed.
 
 // Init slider attributes
 function initSlider(play) {
@@ -80,7 +81,7 @@ function showImage() {
 // Scroll images auto if autoplay is 1, true.
 function autoSlide(){
     showImage()
-    setTimeout(autoSlide, 2000);
+    setTimeout(autoSlide, timespeed);
    
 }
 // Scroll images (if click event)
