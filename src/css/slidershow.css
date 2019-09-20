@@ -2,13 +2,14 @@
     position: relative;
     margin: 0 auto;
     max-width: 400px;
-    /*vertical-align: center;*/
+    vertical-align: center;
 	text-align: center;
 }
 
 .slider-image {
     display: none;
     margin: 0;
+	vertical-align: center;
 }
 
 .slider-mold {
@@ -60,7 +61,7 @@
     padding: 16px;
     top: 0;
 	left: 0;
-    margin-top: 20%;
+    margin-top: 30%;
     float: left;
     width: auto;
     height: auto;
@@ -83,7 +84,7 @@
     right: 0;
     top: 0;
     padding: 16px;
-    margin-top: 20%;
+    margin-top: 30%;
     float: right;
     width: auto;
     height: auto;
