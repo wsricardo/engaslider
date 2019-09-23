@@ -115,7 +115,18 @@
 	display: inline-block;
 	border-radius: 50%;
 	/*border-color: #ffffff;*/
-	background-color: #adababab;
+	background-color: #bbb;
 	box-sizing: border-box;
 	box-shadow: 1px 0 0 2px #0707077c; 
 }
+
+.slider-dots-nav-active {
+	background-color: white;
+}
+
+.slider-dots-nav:hover {
+	cursor: pointer;
+	background-color: #444;
+	transition: 0.3s;
+}
+
