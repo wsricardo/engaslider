@@ -46,12 +46,14 @@ function showImage() {
 	for (j = 0; j <= numberSlides - 1; j++) {
 		dotsNav[j].style.backgroundColor = "#bbb";
 		dotsNav[j].style.display = "block-inline";
+		dotsNav[j].style.padding = "6px";
 	}
 
     slides[slideIndex].style.display = "block";
 	currentDot= slideIndex;	
 	dotsNav[currentDot].style.display = "block-inline";
 	dotsNav[currentDot].style.backgroundColor = "#ddd";
+	dotsNav[currentDot].style.padding = "7px";
 
 }
 
