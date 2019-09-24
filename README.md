@@ -11,6 +11,4 @@ Wandeson Ricardo
 
 Blog: https://wsricardo.blogspot.com
 
-_Download_  =v0.1=
-
-https://github.com/wsricardo/engaslider/releases
+= v0.1 =
