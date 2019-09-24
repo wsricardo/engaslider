@@ -9,6 +9,6 @@ It implement a basic slide show.
 
 Wandeson Ricardo
 
-![Blog:](https://wsricardo.blogspot.com)
+![Blog: wsricardo.blospot.com](https://wsricardo.blogspot.com)
 
 = v0.1 =
