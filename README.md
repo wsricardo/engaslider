@@ -1,10 +1,10 @@
 # Engaslider
-## Image slider show
+## Image Slider Show
 
 ![Screenshot of slider](screenshots/screenshot1.jpg)
 
 This source is a simple plugin for create image slide with pure javascript and css.
-It impplement a basic slide show.
+It implement a basic slide show.
 
 
 Wandeson Ricardo
