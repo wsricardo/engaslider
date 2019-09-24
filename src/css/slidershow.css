@@ -1,3 +1,9 @@
+.slider-main-container {
+	box-sizing: border-box;
+	display: block;
+	margin: 0 auto
+}
+
 .slider-container {
     position: relative;
     margin: 0 auto;
@@ -14,14 +20,17 @@
 
 .slider-mold {
 	display: block;
+	padding-bottom: 0;
     border: 6px solid #adababab;
     border-radius: 5px;
 	box-sizing: border-box;
     box-shadow: 2px 2px 4px 4px #0707077c;
+	-moz-box-shadow: 2px 2px 4px 4px #0707077c;
+	-webkit-box-shadow: 2px 2px 4px 4px #0707077c;
 }
 
 .slider-text-caption {
-    padding: 10px;
+    padding: 12px;
     text-align: center;
     font-size: 11px;
     color: black;
@@ -97,3 +106,25 @@
     background-color: #cecece81;
     transition: 0.3s;
 }
+
+.slider-dots-nav {
+	width: 0 auto;
+	padding: 6px;
+	margin-left: 4px;
+	display: inline-block;
+	border-radius: 50%;
+	/*border-color: #ffffff;*/
+	background-color: #bbb;
+	box-sizing: border-box;
+}
+
+.slider-dots-nav-active {
+	background-color: white;
+}
+
+.slider-dots-nav:hover {
+	cursor: pointer;
+	background-color: #444;
+	transition: 0.3s;
+}
+

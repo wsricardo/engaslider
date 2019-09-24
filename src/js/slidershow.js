@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*MIT License
 
 Copyright (c) 2019 Wandeson Ricardo
@@ -23,11 +24,15 @@ SOFTWARE.*/
 var slideIndex, autoplay, slides, numberSlides;
 var slNextBtn, slPreviousBtn;
 var timespeed = 2000; //Slide speed.
+=======
+var slideIndex, autoplay, slides, numberSlides, currentDot, dotsNav;
+>>>>>>> dev
 
 // Init slider attributes
 function initSlider(play) {
     // Init vars
     slideIndex = 0;
+<<<<<<< HEAD
     autoplay = play;	
 	slNextBtn = document.getElementsByClassName("slider-next-button");
 	slPreviousBtn = document.getElementsByClassName("slider-previous-button");
@@ -35,6 +40,14 @@ function initSlider(play) {
 
     numberSlides = slides.length;
 
+=======
+	currentDot = 0;
+    autoplay = play;
+    slides = document.getElementsByClassName("slider-image");
+	dotsNav = document.getElementsByClassName("slider-dots-nav");
+    numberSlides = slides.length;
+	
+>>>>>>> dev
     if ( autoplay ) {
         autoSlide();
     } else {
@@ -63,20 +76,36 @@ function showImage() {
     console.log(slides);
     console.log(numberSlides);
     console.log("slideIndex "+slideIndex);
+	console.log("currentDot: "+currentDot);
     //*-----*
+
 
     for (j = 0; j <= numberSlides - 1; j++) {
         slides[j].style.display = "none";
     }
+<<<<<<< HEAD
 
 	//slNextBtn.style.top = '"'+offsetHeight+'px'+'"';
 	//slPreviousBtn.style.top = '"'+offsetHeight+'px'+'"';
 
 	console.log("slides[]. "+ offsetHeight );
+=======
+	
+	for (j = 0; j <= numberSlides - 1; j++) {
+		dotsNav[j].style.backgroundColor = "#bbb";
+		dotsNav[j].style.display = "block-inline";
+		dotsNav[j].style.padding = "6px";
+	}
+
+>>>>>>> dev
     slides[slideIndex].style.display = "block";
-    slideIndex++;
+	currentDot= slideIndex;	
+	dotsNav[currentDot].style.display = "block-inline";
+	dotsNav[currentDot].style.backgroundColor = "#ddd";
+	dotsNav[currentDot].style.padding = "7px";
 
 }
+
 
 // Scroll images auto if autoplay is 1, true.
 function autoSlide(){
@@ -86,6 +115,16 @@ function autoSlide(){
 }
 // Scroll images (if click event)
 function mvImage(){
+	slideIndex++;
+	
     showImage();
     //autoplay=0;
+}
+
+function dots(n) {
+	slideIndex = n;
+	currentDot = n;
+	dotsNav[currentDot].style.backgroundColor = "#ddd";
+	//dotsNav[currentDot].className = ""
+	showImage();
 }
