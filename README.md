@@ -9,6 +9,6 @@ It implement a basic slide show.
 
 Wandeson Ricardo
 
-[Blog: wsricardo.blospot.com](https://wsricardo.blogspot.com)
+[Blog: wsricardo.blospot.com](https://wsricardo.blogspot.com/search/label/techcodes)
 
-= v0.1 =
+*Current version:*  _v0.1_
