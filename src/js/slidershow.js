@@ -26,20 +26,17 @@ SOFTWARE.*/
 var slideIndex, autoplay, slides, numberSlides;
 var slNextBtn, slPreviousBtn;
 var timespeed = 2000; //Slide speed.
->>>>>>> features
 
 // Init slider attributes
 function initSlider(play) {
     // Init vars
     slideIndex = 0;
-<<<<<<< HEAD
 	currentDot = 0;
     autoplay = play;
     slides = document.getElementsByClassName("slider-image");
 	dotsNav = document.getElementsByClassName("slider-dots-nav");
     numberSlides = slides.length;
 	
-=======
     autoplay = play;	
 	slNextBtn = document.getElementsByClassName("slider-next-button");
 	slPreviousBtn = document.getElementsByClassName("slider-previous-button");
@@ -47,7 +44,6 @@ function initSlider(play) {
 
     numberSlides = slides.length;
 
->>>>>>> features
     if ( autoplay ) {
         autoSlide();
     } else {
@@ -83,7 +79,6 @@ function showImage() {
     for (j = 0; j <= numberSlides - 1; j++) {
         slides[j].style.display = "none";
     }
-<<<<<<< HEAD
 	
 	for (j = 0; j <= numberSlides - 1; j++) {
 		dotsNav[j].style.backgroundColor = "#bbb";
@@ -91,13 +86,11 @@ function showImage() {
 		dotsNav[j].style.padding = "6px";
 	}
 
-=======
 
 	//slNextBtn.style.top = '"'+offsetHeight+'px'+'"';
 	//slPreviousBtn.style.top = '"'+offsetHeight+'px'+'"';
 
 	console.log("slides[]. "+ offsetHeight );
->>>>>>> features
     slides[slideIndex].style.display = "block";
 	currentDot= slideIndex;	
 	dotsNav[currentDot].style.display = "block-inline";
