@@ -1,19 +1,40 @@
+.slider-main-container {
+	position: relative;
+	box-sizing: border-box;
+	text-align: left;
+	display: block;
+	max-width: 400px;
+	margin: 0;
+	padding: 0;
+}
+
+.slider-main-thumbnail {
+	float: center;
+	padding: 4px;
+	margin: 0;
+	box-sizing: border-box;
+	border: 4px solid #ddd;
+	border-radius: 6px;	
+}
+
 .slider-container {
     position: relative;
     margin: 0 auto;
     max-width: 400px;
-    vertical-align: center;
+    /*vertical-align: center;*/
 	text-align: center;
 }
 
 .slider-image {
     display: none;
-    margin: 0;
+    margin: 0 auto;
+	padding: 0;
 	vertical-align: center;
 }
 
 .slider-mold {
 	display: block;
+	margin: 0 auto;
     border: 6px solid #adababab;
     border-radius: 5px;
 	box-sizing: border-box;
@@ -25,8 +46,6 @@
     text-align: center;
     font-size: 11px;
     color: black;
-    /*font-weight: italic;*/
-    /*float: bottom;*/
 }
 
 .slider-image img {
