@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-var slideIndex, autoplay, slides, numberSlides, currentDot, dotsNav;
-=======
 /*MIT License
 
 Copyright (c) 2019 Wandeson Ricardo
@@ -23,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-var slideIndex, autoplay, slides, numberSlides;
+var slideIndex, autoplay, slides, numberSlides, currentDot, dotsNav;
 var slNextBtn, slPreviousBtn;
 var timespeed = 2000; //Slide speed.
 
