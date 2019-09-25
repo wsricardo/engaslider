@@ -1,4 +1,4 @@
-#Tasks
+# Tasks
 
 * Work in slidershow.css add "main container" for create space to exibition thumnails images for navigation;
 
