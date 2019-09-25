@@ -1,0 +1,51 @@
+<!DOCUMENT html>
+<html>
+<head>
+	<title>Slider</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	<link rel="stylesheet" href="css/slidershow.css">
+</head>
+
+<body  >
+    <div style="width: auto; padding: 50px;">
+    <div class="slider-container slider-mold" >
+        
+        <div class="slider-image">
+                <img src="imgs/01.jpg" style="width:100%;" alt="Foto">
+                <div class="slider-text-caption">Image 1 Wallpaper</div>
+        </div>
+
+        <div class="slider-image">
+            <img src="imgs/02.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Image 2 Wallpaper</div>
+        </div>
+
+        <div class="slider-image">
+            <img src="imgs/03.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Image 3 Wallpaper</div>
+        </div>
+
+        <div class="slider-image">
+            <img src="imgs/04.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Image 4 Wallpaper</div>
+        </div>
+
+        <div class="slider-image">
+            <img src="imgs/05.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Image 5 Wallpaper</div>
+        </div>
+
+        <div class="slider-image">
+            <img src="imgs/06.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Image 6 Wallpaper</div>
+        </div>
+
+        <a class="slider-previous-button" onclick="mvImage(-1)">&#10094;</a>
+        <a class="slider-next-button" onclick="mvImage(1)">&#10095;</a>
+    </div>
+</div>
+    <script src="js/slidershow.js" onload="initSlider(0)"></script>
+</body>
+</html>
