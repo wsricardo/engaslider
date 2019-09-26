@@ -17,6 +17,11 @@
 	border-radius: 6px;	
 }
 
+.slider-main-thumbnail img:hover{
+	border: 2px solid #aaa;
+	padding: 1px;
+}
+
 .slider-container {
     position: relative;
     margin: 0 auto;
