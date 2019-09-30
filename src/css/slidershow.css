@@ -34,14 +34,15 @@ body {
 }
 
 .slider-main-thumbnail img {
+	max-width: 60px;
 	padding: inherit;
 	margin: auto;
 }
 
-.slider-main-thumbnail img:hover{
-	border: 3px solid #aaa;
+/*.slider-main-thumbnail img:hover{
+	border: 1px solid #aaa;
 	padding: 1px;
-}
+}*/
 
 .slider-container {
     position: relative;
