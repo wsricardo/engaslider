@@ -111,7 +111,7 @@ body {
     position: absolute;
     padding: 16px;
     top: 0;
-	left: 0;
+	left: 4px;
     margin-top: 30%;
     float: left;
     width: 0 auto;
@@ -131,8 +131,8 @@ body {
 .slider-next-button {
     cursor: pointer;
     position: absolute;
-    right: 0;
     top: 0;
+    right: 4px;
     padding: 16px;
     margin-top: 30%;
     float: right;
