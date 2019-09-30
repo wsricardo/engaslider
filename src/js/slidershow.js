@@ -21,6 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 var slideIndex, autoplay, slides, numberSlides, currentDot, dotsNav;
+var currentThumb, thumbNav; // Thumbnails images.
 var slNextBtn, slPreviousBtn;
 var timespeed = 2000; //Slide speed.
 
@@ -29,6 +30,7 @@ function initSlider(play) {
     // Init vars
     slideIndex = 0;
 	currentDot = 0;
+	currentThumb = 0;
     autoplay = play;
     slides = document.getElementsByClassName("slider-image");
 	dotsNav = document.getElementsByClassName("slider-dots-nav");
@@ -38,6 +40,9 @@ function initSlider(play) {
 	slNextBtn = document.getElementsByClassName("slider-next-button");
 	slPreviousBtn = document.getElementsByClassName("slider-previous-button");
     slides = document.getElementsByClassName("slider-image");
+
+	thumbNav = document.getElementsByClassName("slider-main-thumbnail")[0]
+				.getElementsByTagName("img");
 
     numberSlides = slides.length;
 
@@ -59,6 +64,7 @@ function showImage() {
     var j = 0;
 	var k = 0;
 	var offsetHeight;
+	var numberThumbs = thumbNav.length;
 
     if  ( slideIndex > numberSlides - 1 ) { slideIndex = 0;}
     if ( slideIndex < 0 ) { slideIndex = slides.length - 1;}
@@ -83,16 +89,25 @@ function showImage() {
 		dotsNav[j].style.padding = "6px";
 	}
 
+	for (j = 0; j < numberThumbs; j++) {
+		thumbNav[j].style.border = "none";
+		thumbNav[j].style.display = "block";
+		thumbNav[j].style.margin = "0 auto";
+	}
 
 	//slNextBtn.style.top = '"'+offsetHeight+'px'+'"';
 	//slPreviousBtn.style.top = '"'+offsetHeight+'px'+'"';
 
 	console.log("slides[]. "+ offsetHeight );
     slides[slideIndex].style.display = "block";
-	currentDot= slideIndex;	
+	currentDot= slideIndex;
+	currentThumb = slideIndex;
+	
 	dotsNav[currentDot].style.display = "block-inline";
 	dotsNav[currentDot].style.backgroundColor = "#ddd";
 	dotsNav[currentDot].style.padding = "7px";
+	
+	thumbNav[currentThumb].style.border = "3px solid #ddd";
 
 }
 
@@ -106,15 +121,21 @@ function autoSlide(){
 // Scroll images (if click event)
 function mvImage(){
 	slideIndex++;
-	
     showImage();
-    //autoplay=0;
 }
 
 function dots(n) {
 	slideIndex = n;
 	currentDot = n;
 	dotsNav[currentDot].style.backgroundColor = "#ddd";
-	//dotsNav[currentDot].className = ""
 	showImage();
 }
+
+/* Thumbnail nav.*/
+function thumbs(index) {
+	slideIndex = index;
+	currentDot = index;
+	currentThumb = index;
+	showImage();
+}
+
