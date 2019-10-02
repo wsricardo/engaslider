@@ -119,8 +119,8 @@ function autoSlide(){
    
 }
 // Scroll images (if click event)
-function mvImage(){
-	slideIndex++;
+function mvImage(i){
+	slideIndex += i;
     showImage();
 }
 
