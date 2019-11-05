@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.app-screen-container {
+	width: 400px;
+	height: 400px;
+	text-align: center;
+}
+
+.container {
+	max-width: 80%;
+	
+}
+
+
+.container-button {
+	display: grid;
+}
+
+.container-button-next {
+
+}
+
+
+.container-button-previous {
+
+}
