@@ -1,0 +1,71 @@
+<!--DOCUMENT html-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Slider (TESTER)</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	<link rel="stylesheet" href="Slider%20(TESTER)_arquivos/slidershow.css">
+</head>
+
+<body>
+
+	<div class="slider-main-container slider-mold-basic">
+	
+
+    <div class="slider-container ">
+        
+        <div class="slider-image" style="display: block;">
+                <img src="Slider%20(TESTER)_arquivos/01_002.jpg" style="width:100%;" alt="Foto">
+                <div class="slider-text-caption">Saguim in tree</div>
+        </div>
+
+        <div class="slider-image" style="display: none;">
+            <img src="Slider%20(TESTER)_arquivos/02_002.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Saguim in tree</div>
+        </div>
+
+        <div class="slider-image" style="display: none;">
+            <img src="Slider%20(TESTER)_arquivos/03.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Saguim</div>
+        </div>
+
+        <div class="slider-image" style="display: none;">
+            <img src="Slider%20(TESTER)_arquivos/04_002.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Cat in house</div>
+        </div>
+
+        <div class="slider-image" style="display: none;">
+            <img src="Slider%20(TESTER)_arquivos/05.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Cats sleep</div>
+        </div>
+
+        <div class="slider-image" style="display: none;">
+            <img src="Slider%20(TESTER)_arquivos/06_002.jpg" style="width: 100%;" alt="foto">
+            <div class="slider-text-caption">Cat and nature</div>
+        </div>
+
+        <a class="slider-previous-button" onclick="mvImage(-1)">❮</a>
+        <a class="slider-next-button" onclick="mvImage(1)">❯</a>
+	
+		<div class="slider-dots-nav" onclick="dots(0)" style="background-color: rgb(221, 221, 221); padding: 7px;"></div>
+		<div class="slider-dots-nav" onclick="dots(1)" style="background-color: rgb(187, 187, 187); padding: 6px;"></div>
+		<div class="slider-dots-nav" onclick="dots(2)" style="background-color: rgb(187, 187, 187); padding: 6px;"></div>
+		<div class="slider-dots-nav" onclick="dots(3)" style="background-color: rgb(187, 187, 187); padding: 6px;"></div>
+		<div class="slider-dots-nav" onclick="dots(4)" style="background-color: rgb(187, 187, 187); padding: 6px;"></div>
+		<div class="slider-dots-nav" onclick="dots(5)" style="background-color: rgb(187, 187, 187); padding: 6px;"></div>
+	
+	</div>
+    </div>
+
+    <div class="slider-main-thumbnail">
+		<img src="Slider%20(TESTER)_arquivos/01.jpg" onclick="thumbs(0)" style="border: 3px solid rgb(221, 221, 221); display: block; margin: 0px auto;">
+		<img src="Slider%20(TESTER)_arquivos/02.jpg" onclick="thumbs(1)" style="border: medium none; display: block; margin: 0px auto;">
+		<img src="Slider%20(TESTER)_arquivos/03_002.jpg" onclick="thumbs(2)" style="border: medium none; display: block; margin: 0px auto;">
+		<img src="Slider%20(TESTER)_arquivos/04.jpg" onclick="thumbs(3)" style="border: medium none; display: block; margin: 0px auto;">
+		<img src="Slider%20(TESTER)_arquivos/05_002.jpg" onclick="thumbs(4)" style="border: medium none; display: block; margin: 0px auto;">
+		<img src="Slider%20(TESTER)_arquivos/06.jpg" onclick="thumbs(5)" style="border: medium none; display: block; margin: 0px auto;">
+	</div><script src="Slider%20(TESTER)_arquivos/slidershow.js" onload="initSlider(0)"></script>
+
+
+</body></html>
