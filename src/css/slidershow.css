@@ -143,7 +143,7 @@ body {
     color: #ffffffa9;
     text-shadow: 1px 1px 5px black;
     box-sizing: border-box;
-	border-radius: 50%;
+	border-radius:10%;
 	vertical-align: middle;
 
 }
@@ -169,7 +169,7 @@ body {
     color: #ffffffa9;
     text-shadow: 1px 1px 5px black;
 	box-sizing: border-box;
-	border-radius: 50%;
+	border-radius: 10%;
 	vertical-align: middle;
 }
 
@@ -184,12 +184,12 @@ body {
 	margin-left: 4px;
 	display: inline-block;
 	border-radius: 50%;
-	background-color: #bbb;
+	background-color: #aaa;
 	box-sizing: border-box;
 }
 
 .slider-dots-nav:hover {
 	cursor: pointer;
-	background-color: #444;
+	background-color: #666;
 	transition: 0.3s;
 }

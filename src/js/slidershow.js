@@ -104,7 +104,7 @@ function showImage() {
 	currentThumb = slideIndex;
 	
 	dotsNav[currentDot].style.display = "block-inline";
-	dotsNav[currentDot].style.backgroundColor = "#ddd";
+	dotsNav[currentDot].style.backgroundColor = "#777";
 	dotsNav[currentDot].style.padding = "7px";
 	
 	thumbNav[currentThumb].style.border = "3px solid #ddd";
@@ -127,7 +127,7 @@ function mvImage(i){
 function dots(n) {
 	slideIndex = n;
 	currentDot = n;
-	dotsNav[currentDot].style.backgroundColor = "#ddd";
+	dotsNav[currentDot].style.backgroundColor = "#777";
 	showImage();
 }
 
