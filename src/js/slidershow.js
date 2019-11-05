@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> dev
 /*MIT License
 
 Copyright (c) 2019 Wandeson Ricardo
@@ -28,20 +24,12 @@ var slideIndex, autoplay, slides, numberSlides, currentDot, dotsNav;
 var currentThumb, thumbNav; // Thumbnails images.
 var slNextBtn, slPreviousBtn;
 var timespeed = 2000; //Slide speed.
-<<<<<<< HEAD
-=======
 var slideIndex, autoplay, slides, numberSlides, currentDot, dotsNav;
->>>>>>> dev
-=======
->>>>>>> dev
 
 // Init slider attributes
 function initSlider(play) {
     // Init vars
     slideIndex = 0;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 	currentDot = 0;
 	currentThumb = 0;
     autoplay = play;
@@ -49,7 +37,6 @@ function initSlider(play) {
 	dotsNav = document.getElementsByClassName("slider-dots-nav");
     numberSlides = slides.length;
 	
->>>>>>> dev
     autoplay = play;	
 	slNextBtn = document.getElementsByClassName("slider-next-button");
 	slPreviousBtn = document.getElementsByClassName("slider-previous-button");
@@ -58,19 +45,14 @@ function initSlider(play) {
 	thumbNav = document.getElementsByClassName("slider-main-thumbnail")[0]
 				.getElementsByTagName("img");
 
-<<<<<<< HEAD
-=======
 	currentDot = 0;
     autoplay = play;
     slides = document.getElementsByClassName("slider-image");
 	dotsNav = document.getElementsByClassName("slider-dots-nav");
     numberSlides = slides.length;
 	
->>>>>>> dev
-=======
     numberSlides = slides.length;
 
->>>>>>> dev
     if ( autoplay ) {
         autoSlide();
     } else {
@@ -107,16 +89,11 @@ function showImage() {
     for (j = 0; j <= numberSlides - 1; j++) {
         slides[j].style.display = "none";
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 	//slNextBtn.style.top = '"'+offsetHeight+'px'+'"';
 	//slPreviousBtn.style.top = '"'+offsetHeight+'px'+'"';
 
 	console.log("slides[]. "+ offsetHeight );
-=======
-=======
->>>>>>> dev
 	
 	for (j = 0; j <= numberSlides - 1; j++) {
 		dotsNav[j].style.backgroundColor = "#bbb";
@@ -124,9 +101,6 @@ function showImage() {
 		dotsNav[j].style.padding = "6px";
 	}
 
-<<<<<<< HEAD
->>>>>>> dev
-=======
 	for (j = 0; j < numberThumbs; j++) {
 		thumbNav[j].style.border = "none";
 		thumbNav[j].style.display = "block";
@@ -137,7 +111,6 @@ function showImage() {
 	//slPreviousBtn.style.top = '"'+offsetHeight+'px'+'"';
 
 	console.log("slides[]. "+ offsetHeight );
->>>>>>> dev
     slides[slideIndex].style.display = "block";
 	currentDot= slideIndex;
 	currentThumb = slideIndex;
@@ -177,4 +150,3 @@ function thumbs(index) {
 	currentThumb = index;
 	showImage();
 }
-
