@@ -15,4 +15,4 @@ Wandeson Ricardo
 
 *Current version(stable):*  _v0.1_
 
-*Current version:* _v0.2_
+*Current version:* _v0.2_ [Releases](https://github.com/wsricardo/engaslider/releases)
