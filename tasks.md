@@ -13,3 +13,4 @@
   - [ ] Features to css style: option thumbnail in vertical ou horizontal directions.
   - [ ] Feature CSS style thumbnails image fields align vertical or left
   - [ ] Feature CSS style thumbnails images fields align above or bellow
+  - [ ] Effects
