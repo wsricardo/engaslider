@@ -20,3 +20,5 @@ Wandeson Ricardo
 **Example**
 
 [Example](https://wsricardo.github.io/engaslider/examples)
+[Example 2](https://wsricardo.github.io/engaslider/examples/example1)
+
