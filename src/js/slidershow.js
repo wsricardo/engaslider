@@ -30,27 +30,29 @@ var slideIndex, autoplay, slides, numberSlides, currentDot, dotsNav;
 function initSlider(play) {
     // Init vars
     slideIndex = 0;
-	currentDot = 0;
-	currentThumb = 0;
-    autoplay = play;
-    slides = document.getElementsByClassName("slider-image");
-	dotsNav = document.getElementsByClassName("slider-dots-nav");
-    numberSlides = slides.length;
-	
-    autoplay = play;	
-	slNextBtn = document.getElementsByClassName("slider-next-button");
-	slPreviousBtn = document.getElementsByClassName("slider-previous-button");
-    slides = document.getElementsByClassName("slider-image");
+    currentDot = 0;
+    currentThumb = 0;
 
-	thumbNav = document.getElementsByClassName("slider-main-thumbnail")[0]
+    autoplay = play;
+    slides = document.querySelectorAll("#slider-image");
+    dotsNav = document.querySelectorAll("#slider-dots-nav");
+    numberSlides = slides.length;
+
+    autoplay = play;
+    slNextBtn = document.querySelectorAll("#slider-next-button");
+    slPreviousBtn = document.querySelectorAll("#slider-previous-button");
+    slides = document.querySelectorAll("#slider-image");
+
+    thumbNav = document.querySelectorAll("#slider-thumbnail")[0]
 				.getElementsByTagName("img");
 
-	currentDot = 0;
+    currentDot = 0;
     autoplay = play;
-    slides = document.getElementsByClassName("slider-image");
-	dotsNav = document.getElementsByClassName("slider-dots-nav");
+    slides = document.querySelectorAll("#slider-image");
+
+    dotsNav = document.querySelectorAll("#slider-dots-nav");
     numberSlides = slides.length;
-	
+
     numberSlides = slides.length;
 
     if ( autoplay ) {
@@ -58,7 +60,7 @@ function initSlider(play) {
     } else {
         showImage();
     }
-    
+
 }
 
 // Set autoplay True.
@@ -68,33 +70,33 @@ function setAutoPlay(){
 
 // Add image to container.
 function showImage() {
-    var j = 0;
+  var j = 0;
 	var k = 0;
 	var offsetHeight;
 	var numberThumbs = thumbNav.length;
 
-    if  ( slideIndex > numberSlides - 1 ) { slideIndex = 0;}
-    if ( slideIndex < 0 ) { slideIndex = slides.length - 1;}
+  if  ( slideIndex > numberSlides - 1 ) { slideIndex = 0;}
+  if ( slideIndex < 0 ) { slideIndex = slides.length - 1;}
 
 	offsetHeight = slides[slideIndex].getElementsByTagName("img")[0].naturalHeight;
 
-    //*Debug*
-    console.log(slides);
-    console.log(numberSlides);
-    console.log("slideIndex "+slideIndex);
+  //*Debug*
+  console.log(slides);
+  console.log(numberSlides);
+  console.log("slideIndex "+slideIndex);
 	console.log("currentDot: "+currentDot);
-    //*-----*
+  //*-----*
 
 
-    for (j = 0; j <= numberSlides - 1; j++) {
-        slides[j].style.display = "none";
-    }
+  for (j = 0; j <= numberSlides - 1; j++) {
+    slides[j].style.display = "none";
+  }
 
 	//slNextBtn.style.top = '"'+offsetHeight+'px'+'"';
 	//slPreviousBtn.style.top = '"'+offsetHeight+'px'+'"';
 
 	console.log("slides[]. "+ offsetHeight );
-	
+
 	for (j = 0; j <= numberSlides - 1; j++) {
 		dotsNav[j].style.backgroundColor = "#bbb";
 		dotsNav[j].style.display = "block-inline";
@@ -114,11 +116,11 @@ function showImage() {
     slides[slideIndex].style.display = "block";
 	currentDot= slideIndex;
 	currentThumb = slideIndex;
-	
+
 	dotsNav[currentDot].style.display = "block-inline";
 	dotsNav[currentDot].style.backgroundColor = "#777";
 	dotsNav[currentDot].style.padding = "7px";
-	
+
 	thumbNav[currentThumb].style.border = "3px solid #ddd";
 
 }
@@ -128,7 +130,7 @@ function showImage() {
 function autoSlide(){
     showImage()
     setTimeout(autoSlide, timespeed);
-   
+
 }
 // Scroll images (if click event)
 function mvImage(i){

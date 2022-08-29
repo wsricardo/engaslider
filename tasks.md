@@ -16,4 +16,4 @@
 
 ### Thumbnaisl images styles (changes)
 
-  class 'slide-main-thumnail' property 'flex-flow' to row and add property "justify-content" with "center"; and class "slider-main-container" change "flex-flow" for column.
+  class 'slide-main-thumnail' property 'flex-flow' to row and add property "justify-content" with "center"; and class "slider-main-container" change "flex-flow" for column. Corrections size and proportions and new align.
