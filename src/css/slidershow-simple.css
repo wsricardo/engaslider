@@ -1,0 +1,182 @@
+body {
+	margin: 10px;
+  padding: 0;
+}
+
+.slider-main-container {
+	display: flex;
+	flex-flow: row;
+	box-sizing: border-box;
+	text-align: left;
+	width: fit-content;
+	max-height: 480px;
+	margin: 0 auto;
+	padding: 2px 6px;
+	/*background-color: whitesmoke;*/
+}
+
+.slider-main-container-column {
+	display: flex;
+	flex-flow: column;
+	box-sizing: border-box;
+	text-align: left;
+	width: fit-content;
+	max-height: 480px;
+	margin: 0 auto;
+	padding: 2px 6px;
+	/*background-color: whitesmoke;*/
+}
+
+.slider-main-thumbnail {
+	display: flex;
+	flex-flow: column;
+	height: 40%;
+	padding: 4px;
+	margin: 8px auto;
+	box-sizing: border-box;
+	/*background-color: white;*/
+}
+
+.slider-main-thumbnail-horizontal {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	height: 40%;
+	max-width: 80px;
+	padding: 4px;
+	margin: 8px auto;
+	box-sizing: border-box;
+	/*background-color: white;*/
+}
+
+.slider-main-thumbnail img {
+	max-width: 75% ;
+	padding: inherit;
+	margin: auto;
+}
+
+
+.slider-main-thumbnail-horizontal img {
+	max-width: 75% ;
+	padding: inherit;
+	margin: auto;
+}
+
+/*.slider-main-thumbnail img:hover{
+	border: 1px solid #aaa;
+	padding: 1px;
+}*/
+
+.slider-container {
+    position: relative;
+		padding: 6px;
+    margin: 0 auto;
+    max-width: 360px;
+    vertical-align: middle;
+		text-align: center;
+}
+
+.slider-image {
+    display: block;
+    margin: auto;
+		padding: 8px;
+		vertical-align: middle;
+}
+
+.slider-text-caption {
+    padding: 12px;
+    text-align: center;
+    font-size: 11px;
+    color: black;
+
+}
+
+.slider-image img {
+    text-align: center;
+		margin 0 auto;
+		padding: 0;
+		box-sizing: border-box;
+		/*border: 6px solid white;*/
+    animation-name: fade;
+    animation-duration: 1s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+}
+
+
+@keyframes fade {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+@-webkit-keyframes fade {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+.slider-previous-button {
+    cursor: pointer;
+    position: absolute;
+    padding: 8px;
+    top: 0;
+		left: 0;
+    margin-top: 35%;
+		margin-left: 24px;
+    float: left;
+    width: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: #ffffffa9;
+    text-shadow: 1px 1px 5px black;
+    box-sizing: border-box;
+		border-radius:10%;
+		vertical-align: middle;
+
+}
+
+.slider-previous-button:hover {
+    background-color: #cecece81;
+    transition: 0.3s;
+}
+
+.slider-next-button {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    margin-top: 35%;
+		margin-right: 25px;
+    float: right;
+    width: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: #ffffffa9;
+    text-shadow: 1px 1px 5px black;
+		box-sizing: border-box;
+		border-radius: 10%;
+		vertical-align: middle;
+}
+
+.slider-next-button:hover {
+    background-color: #cecece81;
+    transition: 0.3s;
+}
+
+.slider-dots-nav {
+		width: auto;
+		padding: 6px;
+		margin-left: 4px;
+		display: inline-block;
+		border-radius: 50%;
+		background-color: #aaa;
+		box-sizing: border-box;
+}
+
+.slider-dots-nav:hover {
+		cursor: pointer;
+		background-color: #666;
+		transition: 0.3s;
+}
