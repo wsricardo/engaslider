@@ -23,7 +23,7 @@ SOFTWARE.*/
 var slideIndex, autoplay, slides, numberSlides, currentDot, dotsNav;
 var currentThumb, thumbNav; // Thumbnails images.
 var slNextBtn, slPreviousBtn;
-var timespeed = 2000; //Slide speed.
+var timespeed = 3000; //Slide speed.
 var slideIndex, autoplay, slides, numberSlides, currentDot, dotsNav;
 
 // Init slider attributes
@@ -38,7 +38,6 @@ function initSlider(play) {
     dotsNav = document.querySelectorAll("#slider-dots-nav");
     numberSlides = slides.length;
 
-    autoplay = play;
     slNextBtn = document.querySelectorAll("#slider-next-button");
     slPreviousBtn = document.querySelectorAll("#slider-previous-button");
     slides = document.querySelectorAll("#slider-image");
@@ -47,7 +46,6 @@ function initSlider(play) {
 				.getElementsByTagName("img");
 
     currentDot = 0;
-    autoplay = play;
     slides = document.querySelectorAll("#slider-image");
 
     dotsNav = document.querySelectorAll("#slider-dots-nav");
@@ -56,6 +54,7 @@ function initSlider(play) {
     numberSlides = slides.length;
 
     if ( autoplay ) {
+      slideIndex = -1 // correction to update show starting in 0 index.
         autoSlide();
     } else {
         showImage();
@@ -113,7 +112,7 @@ function showImage() {
 	//slPreviousBtn.style.top = '"'+offsetHeight+'px'+'"';
 
 	console.log("slides[]. "+ offsetHeight );
-    slides[slideIndex].style.display = "block";
+  slides[slideIndex].style.display = "block";
 	currentDot= slideIndex;
 	currentThumb = slideIndex;
 
@@ -128,14 +127,14 @@ function showImage() {
 
 // Scroll images auto if autoplay is 1, true.
 function autoSlide(){
-    showImage()
+    mvImage(1)
     setTimeout(autoSlide, timespeed);
 
 }
 // Scroll images (if click event)
 function mvImage(i){
-	slideIndex += i;
-    showImage();
+  slideIndex += i;
+  showImage();
 }
 
 function dots(n) {

@@ -11,8 +11,9 @@
 ## Corrections and New features
 
   - [x] Features to css style: option thumbnail in vertical ou horizontal directions.
-  - [ ] Feature CSS style thumbnails image fields align vertical or left
-  - [ ] Feature CSS style thumbnails images fields align above or bellow
+  - [x] Feature CSS style thumbnails images fields align above or bellow (change ord div tag)
+  - [x] Correction auto slide.
+  - [ ] New styles fearures like colors and aligns.
 
 ### Thumbnaisl images styles (changes)
 
