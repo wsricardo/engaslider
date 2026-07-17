@@ -1,74 +1,126 @@
-# Guia de Desenvolvimento: Engaslider 2.0
+# Guia de Desenvolvimento e Arquitetura: Engaslider 2.0
 
-Este guia foi criado para auxiliar desenvolvedores e colaboradores na manutenção do **Engaslider 2.0** e na criação de novos recursos. 
+Este guia foi criado para auxiliar desenvolvedores e colaboradores na manutenção do **Engaslider 2.0** e no desenvolvimento de novos recursos utilizando as diretrizes de arquitetura moderna (Design Headless / Modular).
 
 ---
 
-## 1. Arquitetura do Código
+## 1. Arquitetura do Código (JavaScript)
 
-O Engaslider foi reescrito seguindo o paradigma de **Programação Orientada a Objetos (POO)** com classes ES6. Isso permite o isolamento de escopo completo para que múltiplos sliders coexistam na mesma página sem colisões de variáveis globais.
+O Engaslider é estruturado utilizando classes ES6 para encapsulamento e isolamento de escopo.
+
+### Mapeamento de Arquivos
+- **Script Principal**: [engaslider.js](../src/slider-min/js/engaslider.js) - Contém a definição da classe `Engaslider` com toda a lógica moderna de injeção de eventos dinâmica e suporte ao objeto de configurações.
+- **Script Legado**: [slidershow.js](../src/slider-min/js/slidershow.js) - Mantido estritamente para fins de compatibilidade reversa com projetos antigos, emitindo um aviso de depreciação no console.
 
 ### Fluxo de Inicialização
 
 ```mermaid
 graph TD
     A[Instanciação: new Engaslider] --> B[constructor Selector, options]
-    B --> C[Validação do Container]
-    C --> D[Mapeamento de Elementos Locais]
+    B --> C[Mapeamento de Elementos Locais via querySelector]
+    C --> D[Mapeamento de Miniaturas e Dots]
     D --> E[Execução de init]
-    E --> F[bindEvents - Cliques locais]
-    E --> G[showImage - Exibe slide 0]
-    E --> H[Opcional: startAutoplay]
+    E --> F[setupAccessibility - Configura a11y]
+    E --> G[bindEvents - Associa cliques locais]
+    E --> H[showImage - Renderiza slide inicial]
+    E --> I[startAutoplay - Loop se autoplay for verdadeiro]
 ```
 
-### Estrutura do Estado do Objeto
+### Configurações Aceitas no Construtor
 
-Toda a lógica e referências do slider ficam armazenadas na instância do objeto (`this`):
-- `this.container`: O nó HTML principal que engloba o slider.
-- `this.slideIndex`: O índice numérico inteiro da imagem atualmente exibida.
-- `this.autoplayInterval`: Referência do timer `setInterval` (se `autoplay` for ativo).
-- `this.slides`: Lista de elementos com a classe `.slider-image` localizados dentro do container.
-- `this.dotsNav`: Lista de dots (`.slider-dots-nav`) locais.
-- `this.thumbNav`: Lista de miniaturas (`img`) locais.
-
----
-
-## 2. Como Estender o Slider (Guias Práticos)
-
-Abaixo estão exemplos estruturados de código de como você pode adicionar novos recursos comuns à classe `Engaslider` no arquivo [slidershow.js](../src/slider-min/js/slidershow.js).
-
-### A. Adicionando Navegação por Teclado
-Para permitir que o usuário navegue pelas imagens usando as setas do teclado (esquerda/direita) quando o slider estiver em foco.
-
-**Onde alterar no código:**
-No método `bindEvents()`, adicione um escutador global ou focado no container:
 ```javascript
-// Dentro de bindEvents()
-document.addEventListener("keydown", (e) => {
-  // Apenas navega se o slider estiver visível ou se quiser um comportamento global
-  if (e.key === "ArrowLeft") {
-    this.mvImage(-1);
-  } else if (e.key === "ArrowRight") {
-    this.mvImage(1);
-  }
+const slider = new Engaslider("#container", {
+  autoplay: false, // Transição automática (true/false)
+  speed: 3000,     // Tempo em milissegundos para transição (padrão: 3000)
+  loop: true       // Loop circular infinito de slides (padrão: true)
 });
 ```
 
 ---
 
-### B. Adicionando Suporte a Gestos de Deslizar (Swipe) para Celulares
-Para melhorar a experiência em dispositivos mobile usando eventos de toque (`touchstart` e `touchend`).
+## 2. API de Integração e Eventos
 
-**Onde alterar no código:**
-1. No `constructor`, defina propriedades de controle do toque:
+### A. Escutando Mudanças de Slide (Custom Events)
+A cada transição de imagem, a classe despacha um evento customizado chamado `slideChange` contendo o índice atual do slide. Isso possibilita integrações avançadas:
+
+```javascript
+const sliderEl = document.querySelector('#meu-slider');
+sliderEl.addEventListener('slideChange', (e) => {
+    console.log('Slide ativo:', e.detail.activeIndex);
+    // Execute código externo aqui (ex: rastrear analytics, carregar legendas, etc.)
+});
+```
+
+### B. Destruindo Instâncias e Evitando Memory Leaks
+Caso o slider seja destruído de forma dinâmica em aplicações SPA, invoque o método `.destroy()` para liberar os listeners de cliques, pausar o autoplay e remover atributos de acessibilidade, prevenindo vazamentos de memória:
+
+```javascript
+// Remove listeners e para o autoplay
+slider.destroy();
+```
+
+---
+
+## 3. Arquitetura CSS Modular (Design Headless)
+
+O visual do slider foi desacoplado de sua estrutura funcional básica em dois arquivos distintos:
+
+### A. Estilo Estrutural: [engaslider-core.css](../src/slider-min/css/engaslider-core.css)
+Contém a estruturação essencial (flex layout, posições absolutas de botões, dimensões básicas, etc.) sem cosméticos gráficos. **Não deve ser editado para fins estéticos.**
+
+### B. Estilo Visual (Tema Padrão): [engaslider-theme.css](../src/slider-min/css/engaslider-theme.css)
+Contém toda a estilização estética padrão (cores de fundo, bordas, sombras, transições).
+Usa variáveis CSS prefixadas para facilitar a customização em nível de projeto:
+
+```css
+:root {
+  --engaslider-bg-color: whitesmoke;       /* Cor do fundo do container */
+  --engaslider-body-bg: #ddd;             /* Cor do body do exemplo */
+  --engaslider-container-bg: white;        /* Fundo dos painéis */
+  --engaslider-border-color: #adababab;   /* Borda das sombras moldes */
+  --engaslider-shadow-color: rgba(7, 7, 7, 0.48); /* Cor da sombra */
+  --engaslider-caption-color: black;      /* Cor da legenda */
+  --engaslider-button-color: #ffffffa9;   /* Cor das setas de navegação */
+  --engaslider-button-hover-bg: rgba(0, 0, 0, 0.4); /* Hover das setas */
+  --engaslider-dot-bg: #aaa;              /* Fundo das bolinhas */
+  --engaslider-dot-active-bg: #777;       /* Fundo da bolinha ativa */
+  --engaslider-thumb-active-border: 3px solid #ddd; /* Borda da miniatura ativa */
+}
+```
+
+---
+
+## 4. Acessibilidade (a11y) Integrada
+
+O Engaslider atribui dinamicamente os papéis WAI-ARIA correspondentes a um carrossel semântico:
+- `role="region"` com `aria-roledescription="carousel"` no container principal.
+- `aria-live="polite"` para leitores de tela capturarem a transição de slide.
+- `role="button"` e `aria-label` apropriados nas setas e miniaturas.
+- `aria-selected` dinâmico nos dots de navegação.
+
+---
+
+## 5. Guias de Extensão para Novos Recursos
+
+Se precisar estender o motor do slider com novos recursos, adicione-os na classe [Engaslider](../src/slider-min/js/engaslider.js):
+
+### A. Adicionando Navegação por Teclado
+No método `bindEvents()`, adicione:
+```javascript
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") this.mvImage(-1);
+  if (e.key === "ArrowRight") this.mvImage(1);
+});
+```
+
+### B. Gestos Mobile (Swipe)
+1. Declare no construtor:
 ```javascript
 this.touchStartX = 0;
 this.touchEndX = 0;
 ```
-
-2. No método `bindEvents()`, capture o início e o fim do toque:
+2. Adicione no método `bindEvents()`:
 ```javascript
-// Dentro de bindEvents()
 this.container.addEventListener("touchstart", (e) => {
   this.touchStartX = e.changedTouches[0].screenX;
 }, { passive: true });
@@ -78,82 +130,11 @@ this.container.addEventListener("touchend", (e) => {
   this.handleSwipe();
 }, { passive: true });
 ```
-
-3. Crie o método auxiliar `handleSwipe()` na classe:
+3. Adicione o método de validação:
 ```javascript
 handleSwipe() {
-  const threshold = 50; // Distância mínima do deslize em pixels
-  const swipeDistance = this.touchEndX - this.touchStartX;
-  
-  if (swipeDistance < -threshold) {
-    this.mvImage(1); // Deslizou para a esquerda (próximo)
-  } else if (swipeDistance > threshold) {
-    this.mvImage(-1); // Deslizou para a direita (anterior)
-  }
+  const diff = this.touchEndX - this.touchStartX;
+  if (diff < -50) this.mvImage(1);  // Swipe para a esquerda (próximo)
+  if (diff > 50) this.mvImage(-1);  // Swipe para a direita (anterior)
 }
 ```
-
----
-
-### C. Pausar Rotação ao Passar o Mouse (Pause on Hover)
-Para pausar o autoplay temporariamente quando o usuário coloca o ponteiro do mouse sobre o slider.
-
-**Onde alterar no código:**
-No método `bindEvents()`:
-```javascript
-// Dentro de bindEvents()
-if (this.options.autoplay) {
-  this.container.addEventListener("mouseenter", () => this.stopAutoplay());
-  this.container.addEventListener("mouseleave", () => this.startAutoplay());
-}
-```
-
----
-
-### D. Adicionando Efeitos de Transição CSS Personalizados
-Atualmente, o efeito é controlado pela animação `fade` no CSS. Se você quiser criar outros efeitos (ex: deslizar horizontalmente `slide` ou zoom), siga os passos abaixo:
-
-1. **Defina a animação no CSS** ([slidershow.css](../src/slider-min/css/slidershow.css)):
-```css
-@keyframes slide-in {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-
-.slider-image.slide-effect img {
-  animation-name: slide-in;
-  animation-duration: 0.5s;
-}
-```
-
-2. **Permita configurar a animação via opções no JS**:
-No `constructor`, adicione uma propriedade padrão `transitionEffect`:
-```javascript
-this.options = {
-  autoplay: options.autoplay !== undefined ? options.autoplay : false,
-  timespeed: options.timespeed || 3000,
-  effect: options.effect || 'fade', // novo parâmetro
-  ...options
-};
-```
-
-3. **Aplique o efeito ao exibir a imagem** em `showImage()`:
-```javascript
-this.slides.forEach((slide, index) => {
-  if (index === this.slideIndex) {
-    slide.style.display = "block";
-    // Remove classes de efeitos antigos e aplica o selecionado
-    slide.classList.remove("fade-effect", "slide-effect");
-    slide.classList.add(`${this.options.effect}-effect`);
-  } else {
-    slide.style.display = "none";
-  }
-});
-```
-
----
-
-## 3. Padrão de Estilo e Convenções
-- **Zero Dependências**: O projeto deve continuar rodando com Vanilla JS e CSS puro.
-- **Manipulação de DOM Limpa**: Evite injetar regras de estilo (`style.backgroundColor = ...`) diretamente via JS. Prefira gerenciar adicionando/removendo classes CSS (`element.classList.add('className')`) e deixando o CSS lidar com a representação gráfica.
-- **Acessibilidade**: Sempre adicione atributos `alt` descritivos às tags `<img>` e preveja focos de teclado para leitores de tela nos botões de controle (`<a>` ou `<button>`).

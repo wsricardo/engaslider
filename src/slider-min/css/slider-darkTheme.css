@@ -1,0 +1,17 @@
+:root {
+    --slider-arrow-color: #fff;
+    --slider-dots-color: #fff;
+    --slider-dots-active-color: #fff;
+    --color-background-dark1: #111;
+    --color-background-dark2: #222;
+    --color-background-dark3: #333;
+    --color-background-dark4: #444;
+    --color-background-dark5: #555;
+    --color-text-light1: #fff;
+}
+
+.slider-mc-darkTheme {
+    background-color: var(--color-background-dark1);
+    border: none;
+    color: var(--color-text-light1);
+}

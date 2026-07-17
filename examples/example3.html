@@ -1,75 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Slider </title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie-edge">
-	<link rel="stylesheet" href="../src/slider-min/css/engaslider-core.css">
-	<style>
-		/* Customização de estilo headless simples por variáveis CSS */
-		:root {
-			--engaslider-dot-bg: #aaa;
-			--engaslider-dot-active-bg: #777;
-			--engaslider-thumb-active-border: 3px solid #ddd;
-			--engaslider-transition-speed: 0.3s;
-		}
-
-		body {
-			margin: 10px;
-			padding: 0;
-		}
-
-		.slider-main-thumbnail img,
-		.slider-main-thumbnail-horizontal img {
-			border: 3px solid transparent;
-			transition: border var(--engaslider-transition-speed);
-		}
-
-		.slider-main-thumbnail img.active,
-		.slider-main-thumbnail-horizontal img.active {
-			border: var(--engaslider-thumb-active-border);
-		}
-
-		.slider-previous-button,
-		.slider-next-button {
-			font-weight: bold;
-			font-size: 1em;
-			color: #ffffffa9;
-			text-shadow: 1px 1px 5px black;
-			border-radius: 10%;
-			transition: background-color var(--engaslider-transition-speed);
-		}
-
-		.slider-previous-button:hover,
-		.slider-next-button:hover {
-			background-color: #cecece81;
-		}
-
-		.slider-dots-nav {
-			background-color: var(--engaslider-dot-bg);
-			transition: background-color var(--engaslider-transition-speed), padding var(--engaslider-transition-speed);
-		}
-
-		.slider-dots-nav:hover {
-			background-color: #666;
-		}
-
-		.slider-dots-nav.active {
-			background-color: var(--engaslider-dot-active-bg);
-			padding: 7px;
-		}
-	</style>
+    <title>Slider </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link rel="stylesheet" href="../src/slider-min/css/engaslider-core.css">
+    <link rel="stylesheet" href="../src/slider-min/css/engaslider-theme.css">
+    <link rel="stylesheet" href="../src/slider-min/css/slider-darkTheme.css">
 </head>
 
 <body>
 
-	<div style="padding: 10px; width: 600px; height:100px; margin: 0 auto; text-align: center;">
-			<h1>Slider Show Simple</h1>
-	</div>
-
-	<div id="slider-main-container" class="slider-main-container-column">
-        <div id="slider-thumbnail" class="slider-main-thumbnail-horizontal">
+    <div id="slider-main-container" class="slider-main-container slider-mold-basic slider-mc-darkTheme">
+        <div id="slider-thumbnail" class="slider-main-thumbnail">
             <img src="thumbnails/01.jpg" alt="Miniatura 1">
             <img src="thumbnails/02.jpg" alt="Miniatura 2">
             <img src="thumbnails/03.jpg" alt="Miniatura 3">
@@ -78,7 +23,7 @@
             <img src="thumbnails/06.jpg" alt="Miniatura 6">
         </div>
 
-        <div class="slider-container" >
+        <div class="slider-container">
 
             <div class="slider-image">
                 <img src="imgs/01.jpg" style="width:100%;" alt="Foto">
@@ -140,12 +85,12 @@
     </div>
     <script src="../src/slider-min/js/engaslider.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const meuSlider = new Engaslider("#slider-main-container", {
-                autoplay: true,
-                speed: 3000
+                autoplay: false
             });
         });
     </script>
 </body>
+
 </html>

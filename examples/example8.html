@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Engaslider - E-commerce Header Banner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <!-- Importações da arquitetura modular base -->
+    <link rel="stylesheet" href="../src/slider-min/css/engaslider-core.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        /* 1. Barra de Topo do E-commerce (Slider Promocional) */
+        .ecommerce-topbar {
+            background-color: #111;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+            height: 38px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        #promo-slider {
+            width: 100%;
+            max-height: 38px;
+        }
+
+        .slider-container {
+            max-width: 800px;
+            padding: 0;
+        }
+
+        .slider-image {
+            padding: 0;
+            text-align: center;
+        }
+
+        .promo-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 38px;
+            gap: 8px;
+        }
+
+        .promo-tag {
+            background: #e6f4ea;
+            color: #137333;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .promo-link {
+            color: #fff;
+            text-decoration: underline;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        /* Setas super discretas que surgem no hover */
+        .slider-previous-button,
+        .slider-next-button {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9em;
+            margin-top: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.2s, color 0.2s;
+            cursor: pointer;
+            text-shadow: none;
+            width: 24px;
+            height: 24px;
+        }
+
+        .ecommerce-topbar:hover .slider-previous-button,
+        .ecommerce-topbar:hover .slider-next-button {
+            opacity: 1;
+        }
+
+        .slider-previous-button:hover,
+        .slider-next-button:hover {
+            color: #fff;
+        }
+
+        .slider-previous-button { left: 20px; }
+        .slider-next-button { right: 20px; }
+
+        /* Animação suave de transição */
+        .slider-image[style*="display: block"] .promo-content {
+            animation: slide-up-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slide-up-fade {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 2. Layout do Header Mock do E-commerce */
+        .ecommerce-header {
+            background: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #111;
+        }
+
+        .logo span {
+            color: #ff6b6b;
+        }
+
+        .search-bar {
+            width: 40%;
+            display: flex;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px 16px;
+            border: 1px solid #ced4da;
+            border-radius: 20px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .header-actions a {
+            color: #333;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .cart-count {
+            background: #ff6b6b;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 50%;
+            padding: 2px 6px;
+            position: absolute;
+            top: -10px;
+            right: -15px;
+        }
+
+        /* Corpo de conteúdo demonstrativo */
+        .hero-banner {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 60px;
+            text-align: center;
+            border: 1px solid #eaeaea;
+        }
+
+        .hero-banner h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+        }
+
+        .hero-banner p {
+            color: #666;
+            margin: 0 0 30px 0;
+        }
+
+        .hero-btn {
+            background: #111;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Slider Promocional na barra superior -->
+    <div class="ecommerce-topbar">
+        <div id="promo-slider" class="slider-main-container">
+            <div class="slider-container">
+                
+                <!-- Slide Promo 1 -->
+                <div class="slider-image">
+                    <div class="promo-content">
+                        <span class="promo-tag">Frete Grátis</span>
+                        <span>Frete grátis em compras acima de R$ 199.</span>
+                        <a href="#" class="promo-link">Ver regras</a>
+                    </div>
+                </div>
+
+                <!-- Slide Promo 2 -->
+                <div class="slider-image">
+                    <div class="promo-content">
+                        <span class="promo-tag" style="background:#fef3c7; color:#b45309;">Desconto</span>
+                        <span>Use o cupom <strong>BEMVINDO10</strong> para 10% OFF na primeira compra.</span>
+                    </div>
+                </div>
+
+                <!-- Slide Promo 3 -->
+                <div class="slider-image">
+                    <div class="promo-content">
+                        <span class="promo-tag" style="background:#e0f2fe; color:#0369a1;">Parcelas</span>
+                        <span>Parcele suas compras em até 10x sem juros no cartão de crédito.</span>
+                    </div>
+                </div>
+
+                <!-- Setas flutuantes no hover -->
+                <a class="slider-previous-button">&#10094;</a>
+                <a class="slider-next-button">&#10095;</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Header do E-commerce -->
+    <header class="ecommerce-header">
+        <div class="logo">SHOP<span>BUZZ</span></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar por produtos, marcas e categorias...">
+        </div>
+        <div class="header-actions">
+            <a href="#">Minha Conta</a>
+            <a href="#">Carrinho <span class="cart-count">3</span></a>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="hero-banner">
+        <h2>Nova Coleção de Inverno</h2>
+        <p>Jaquetas, moletons e acessórios premium com frete grátis ativo.</p>
+        <a href="#" class="hero-btn">Ver Coleção</a>
+    </div>
+
+    <!-- Navegação de Exemplos -->
+    <div style="margin: 80px auto 40px auto; text-align: center; padding: 10px; color: black; font-family: sans-serif; font-size: 14px;">
+        <p style="margin-bottom: 10px; font-weight: bold; color: #555;">Navegação de Exemplos:</p>
+        <a href="index.html" style="margin: 0 5px; color: #007bff; text-decoration: none;">0. Padrão</a> |
+        <a href="example1.html" style="margin: 0 5px; color: #007bff; text-decoration: none;">1. Thumbnails Horizontais</a> |
+        <a href="example2.html" style="margin: 0 5px; color: #007bff; text-decoration: none;">2. Estilo Simples</a> |
+        <a href="example3.html" style="margin: 0 5px; color: #007bff; text-decoration: none;">3. Tema Escuro</a> |
+        <a href="example4.html" style="margin: 0 5px; color: #007bff; text-decoration: none;">4. Múltiplas Instâncias</a> |
+        <a href="example5.html" style="margin: 0 5px; color: #007bff; text-decoration: none;">5. Teclado/Transições</a> |
+        <a href="example6.html" style="margin: 0 5px; color: #007bff; text-decoration: none;">6. Layout de Notícias</a> |
+        <a href="example7.html" style="margin: 0 5px; color: #007bff; text-decoration: none;">7. Sem Dots</a> |
+        <a href="example8.html" style="margin: 0 5px; color: #007bff; text-decoration: none; font-weight: bold;">8. E-commerce</a> |
+        <a href="example9.html" style="margin: 0 5px; color: #007bff; text-decoration: none;">9. Fullscreen</a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../src/slider-min/js/engaslider.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Inicializando o slider promocional da barra de topo
+            // Sem dots, autoplay ativo com rotação a cada 4 segundos
+            const promoSlider = new Engaslider("#promo-slider", {
+                autoplay: true,
+                speed: 4000,
+                loop: true
+            });
+        });
+    </script>
+</body>
+
+</html>
