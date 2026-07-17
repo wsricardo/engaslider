@@ -1,3 +1,11 @@
+:root {
+  --button-color: #ffffffa9;
+  --button-hover-bg: #cecece81;
+  --dot-bg: #aaa;
+  --dot-active-bg: #777;
+  --thumb-active-border: 3px solid #ddd;
+}
+
 *{
   box-sizing: border-box;
 }
@@ -56,6 +64,8 @@ body {
 	max-width: 75% ;
 	padding: inherit;
 	margin: auto;
+	border: 3px solid transparent;
+	transition: border 0.3s;
 }
 
 
@@ -63,12 +73,14 @@ body {
 	max-width: 75% ;
 	padding: inherit;
 	margin: auto;
+	border: 3px solid transparent;
+	transition: border 0.3s;
 }
 
-/*.slider-main-thumbnail img:hover{
-	border: 1px solid #aaa;
-	padding: 1px;
-}*/
+.slider-main-thumbnail img.active,
+.slider-main-thumbnail-horizontal img.active {
+	border: var(--thumb-active-border);
+}
 
 .slider-container {
     position: relative;
@@ -96,7 +108,7 @@ body {
 
 .slider-image img {
     text-align: center;
-		margin 0 auto;
+		margin: 0 auto;
 		padding: 0;
 		box-sizing: border-box;
 		/*border: 6px solid white;*/
@@ -130,7 +142,7 @@ body {
     text-align: center;
     font-weight: bold;
     font-size: 1em;
-    color: #ffffffa9;
+    color: var(--button-color);
     text-shadow: 1px 1px 5px black;
     box-sizing: border-box;
 		border-radius:10%;
@@ -139,7 +151,7 @@ body {
 }
 
 .slider-previous-button:hover {
-    background-color: #cecece81;
+    background-color: var(--button-hover-bg);
     transition: 0.3s;
 }
 
@@ -156,7 +168,7 @@ body {
     text-align: center;
     font-weight: bold;
     font-size: 1em;
-    color: #ffffffa9;
+    color: var(--button-color);
     text-shadow: 1px 1px 5px black;
 		box-sizing: border-box;
 		border-radius: 10%;
@@ -164,7 +176,7 @@ body {
 }
 
 .slider-next-button:hover {
-    background-color: #cecece81;
+    background-color: var(--button-hover-bg);
     transition: 0.3s;
 }
 
@@ -174,12 +186,18 @@ body {
 		margin-left: 4px;
 		display: inline-block;
 		border-radius: 50%;
-		background-color: #aaa;
+		background-color: var(--dot-bg);
 		box-sizing: border-box;
+		transition: background-color 0.3s, padding 0.3s;
 }
 
 .slider-dots-nav:hover {
 		cursor: pointer;
 		background-color: #666;
 		transition: 0.3s;
+}
+
+.slider-dots-nav.active {
+		background-color: var(--dot-active-bg);
+		padding: 7px;
 }
